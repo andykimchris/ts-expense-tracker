@@ -46,7 +46,8 @@ const AddBudgetModal: FC<AddExpensesModalProps> = ({
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="max">
-            <Form.Label>Amount</Form.Label>
+            <Form.Label>Amount <span style={{ opacity: '0.4'}}>USD</span></Form.Label>
+
             <Form.Control
               ref={amountRef}
               type="number"
