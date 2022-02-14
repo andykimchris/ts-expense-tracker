@@ -46,7 +46,9 @@ const AddBudgetModal: FC<AddExpensesModalProps> = ({
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="max">
-            <Form.Label>Amount <span style={{ opacity: '0.4'}}>USD</span></Form.Label>
+            <Form.Label>
+              Amount <span style={{ opacity: "0.4" }}>USD</span>
+            </Form.Label>
 
             <Form.Control
               ref={amountRef}
@@ -57,17 +59,19 @@ const AddBudgetModal: FC<AddExpensesModalProps> = ({
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="budgetId">
-            <Form.Label>Budget</Form.Label>
-            <Form.Select defaultValue={defaultBudgetId} ref={budgetIdRef}>
-              <option id={UNCATEGORIZED_BUDGET_ID}>Uncategorized</option>
-              {budgets.map((budget) => (
-                <option key={budget.id} value={budget.id}>
-                  {budget.name}
-                </option>
-              ))}
-            </Form.Select>
-          </Form.Group>
+          {defaultBudgetId === "Uncategorized" && (
+            <Form.Group className="mb-3" controlId="budgetId">
+              <Form.Label>Budget</Form.Label>
+              <Form.Select defaultValue={defaultBudgetId} ref={budgetIdRef}>
+                <option id={UNCATEGORIZED_BUDGET_ID}>Uncategorized</option>
+                {budgets.map((budget) => (
+                  <option key={budget.id} value={budget.id}>
+                    {budget.name}
+                  </option>
+                ))}
+              </Form.Select>
+            </Form.Group>
+          )}
 
           <div className="d-flex justify-content-end">
             <Button variant="primary" type="submit">
